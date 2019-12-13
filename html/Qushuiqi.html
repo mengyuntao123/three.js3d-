@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>取水器3D图</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta http-equiv="pragma" content="must-revalidate">
+		<meta http-equiv="Cache-control:max-age=500" content="must-revalidate">
+		<link rel="stylesheet" href="../static/css/loading.css" type="text/css">
+		<script src="../static/js/loaders/three.js"></script>
+		<script src="../static/js/loaders/MTLLoader.js"></script>
+		<script src="../static/js/loaders/OBJLoader.js"></script>
+		<script src="../static/js/loaders/OrbitControls.js"></script>
+		<script src="../static/js/loaders/Detector.js"></script>
+		<script src="../static/js/loadModel/3dLoader.js"></script>
+	</head>
+
+	<body>
+		<!--进度条-->
+		<div id="progress" >
+			<div id="loadings" class="vertical-centered-box" >
+				<div class="content">
+					<div class="loader-circle"></div>
+					<div class="loader-line-mask one">
+					  <div class="loader-line"></div>
+					</div>
+					<div class="loader-line-mask two">
+					  <div class="loader-line"></div>
+					</div>
+					<div class="loader-line-mask three">
+					  <div class="loader-line"></div>
+					</div>
+					<div class="loader-line-mask four">
+					  <div class="loader-line"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+				function startLoad(){
+					// 检测浏览器兼容
+					if(Detector.webgl){
+					   setPath("Qushuiqi")
+					   init();
+					   loadModel(0);
+					   animate();
+					}else{
+					   alert('浏览器不支持查看');
+					}
+				}
+				startLoad();
+				function setPath(paramName){
+					 path= "../static/models/"+paramName+"/";
+					 pathName = paramName ;
+				}
+				
+				//初始化
+				function init() {
+					
+					container = document.createElement( 'div' );
+					document.body.appendChild( container );
+					
+					//创建一个一个视角
+					camera = new THREE.PerspectiveCamera( 12, window.innerWidth / window.innerHeight, 1, 700 );
+					
+					//设置视角离原点的位置（眼睛距离模型的距离） 
+					//camera.position.z = 700;
+					camera.position.set( -200, 120, -500 );
+
+					// scene 创建一个场景
+					scene = new THREE.Scene();
+					// 设置场景背景色 
+					scene.background = new THREE.Color( 0xEAEAEA);
+					//scene.fog = new THREE.Fog( 0x000, 1000, 4000 );
+
+					
+					//创建一个环境灯光
+					var ambientLight = new THREE.AmbientLight( 0xffffff, 1.8);
+					scene.add( ambientLight );
+
+					//创建一个点灯光
+					var pointLight = new THREE.PointLight( 0xffffff, 0.5 );
+					
+					//给模型添加灯光
+					camera.add( pointLight );
+					
+					//把视角放入环境
+					scene.add( camera );
+					// 添加操作器
+					//THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
+					//创建一个webgl对象 // 设置透明
+					renderer = new THREE.WebGLRenderer({antialias: false,alpha: true});
+					// 设置颜色
+					renderer.setClearColor(0xEAEAEA,0);
+					// 设置分辨率
+					renderer.setPixelRatio( window.devicePixelRatio );
+					// 设置渲染尺寸
+					renderer.setSize( window.innerWidth, window.innerHeight );
+					container.appendChild( renderer.domElement );
+					//控制器
+					controls = new THREE.OrbitControls( camera ,renderer.domElement );
+					//设置旋转速度
+					controls.rotateSpeed = 0.144;
+					// 使动画循环使用时阻尼或自转 意思是否有惯性 
+					controls.enableDamping = true; 
+					//是否可以缩放 
+					controls.enableZoom = true; 
+					//是否自动旋转 
+					controls.autoRotate = true; 
+					//设置相机距离原点的最远距离 
+					controls.minDistance = 500; 
+					//设置相机距离原点的最远距离 
+					controls.maxDistance = 500; 
+					//是否开启右键拖拽 
+					controls.enablePan = false;
+					// 自适应监听
+					window.addEventListener( 'resize', resize, false );
+				}
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,54 @@
+newmtl blinn1SG
+illum 4
+d  0.0  0.0  0.0
+tr 0.00001  0.00001  0.00001
+Kd 0.0 0.0 0.0
+Ka 0.0 0.0 0.0
+Tf 0.00 0.00 0.00
+map_Kd Boli02.png
+Ni 1.00
+Ks 0.0 0.0 0.0
+newmtl blinn2SG
+illum 4
+Kd 0.35 0.35 0.35
+Ka 0.35 0.35 0.35
+Tf 1.00 1.00 1.00
+map_Kd Jinsu.jpg
+Ni 1.00
+Ks 0.13 0.13 0.13
+newmtl blinn4SG
+illum 4
+Kd 0.35 0.35 0.35
+Ka 0.35 0.35 0.35
+Tf 1.00 1.00 1.00
+map_Kd Jinsu2a.jpg
+Ni 1.00
+Ks 0.14 0.14 0.14
+newmtl lambert2SG
+illum 4
+Kd 0.35 0.35 0.35
+Ka 0.35 0.35 0.35
+Tf 1.00 1.00 1.00
+map_Kd Xiangjiao.jpg
+Ni 1.00
+newmtl lambert3SG
+illum 4
+Kd 0.35 0.35 0.35
+Ka 0.35 0.35 0.35
+Tf 1.00 1.00 1.00
+map_Kd Xiutong.jpg
+Ni 1.00
+newmtl lambert4SG
+illum 4
+Kd 0.35 0.35 0.35
+Ka 0.35 0.35 0.35
+Tf 1.00 1.00 1.00
+map_Kd Mushai.jpg
+Ni 1.00
+newmtl lambert5SG
+illum 4
+Kd 0.35 0.35 0.35
+Ka 0.35 0.35 0.35
+Tf 1.00 1.00 1.00
+map_Kd Shengzi.png
+Ni 1.00

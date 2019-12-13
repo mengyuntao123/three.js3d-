@@ -1,0 +1,8 @@
+newmtl lambert2SG
+illum 4
+Ka 0.5 0.5 0.5
+Kd 0.5 0.5 0.5
+Tf 1.00 1.00 1.00
+map_Kd Chutou2a.jpg
+bump Chutou2a.jpg -bm 1
+Ni 1.00
